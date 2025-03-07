@@ -9,15 +9,18 @@
 pushd "../../../../../" > /dev/null
 source .set_env.sh
 popd > /dev/null
-
+export host_ip=$(hostname -I | awk '{print $1}')
 export EMBEDDING_MODEL_ID="BAAI/bge-base-en-v1.5"
-export OPENAI_EMBEDDING_MODEL="text-embedding-3-small"
-export LLM_MODEL_ID="meta-llama/Meta-Llama-3.1-8B-Instruct"
-export OPENAI_LLM_MODEL="gpt-4o"
+#export OPENAI_EMBEDDING_MODEL="text-embedding-3-small"
+export LLM_MODEL_ID="Intel/neural-chat-7b-v3"
+#export OPENAI_LLM_MODEL="gpt-4o"
 export TEI_EMBEDDING_ENDPOINT="http://${host_ip}:6006"
+export HUGGINGFACEHUB_API_TOKEN="YOUR_HUGGINGFACE_TOKEN_HERE"
+export HT_TOKEN="YOUR_HUGGINGFACE_TOKEN_HERE"
 export TGI_LLM_ENDPOINT="http://${host_ip}:6005"
 export NEO4J_URL="bolt://${host_ip}:7687"
 export NEO4J_USERNAME=neo4j
+export NEO4J_PASSWORD=OpeaAdmin!2025
 export DATAPREP_SERVICE_ENDPOINT="http://${host_ip}:5000/v1/dataprep/ingest"
 export LOGFLAG=True
 export RETRIEVER_SERVICE_PORT=80
